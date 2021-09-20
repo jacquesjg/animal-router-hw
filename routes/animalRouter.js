@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router();
-const { id, name } = req.params;
 
 let animalArray = [
     { id: 1, animalName: "dog" },
@@ -23,10 +22,14 @@ router.get("/", function (req, res) {
 });
 
 router.get("/get-animal-array", function (req, res) {
+    const { id, name } = req.params;
+
     res.json({ animalArray });
 });
 
 router.get("/get-animal-by-params-id/:id", function (req, res) {
+    const { id, name } = req.params;
+
     let foundAnimal;
 
     animalArray.forEach((animal) => {
